@@ -32,6 +32,6 @@ public class NarapidanaPembunuhan extends Narapidana implements PemeriksaanRutin
 
     @Override
     public String getJenisPemeriksaan() {
-        return "Evaluasi psikologis setiap 3 bulan";
+        return "Cek psikologis setiap 3 bulan";
     }
 }

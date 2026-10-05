@@ -162,19 +162,4 @@ public class AdminLapas {
         }
     }
 
-    public void cekPemeriksaanRutin() {
-        String idTarget = view.bacaTeks("Masukkan ID Narapidana");
-
-        for (Narapidana n : daftarNarapidana) {
-            if (n.getIdNapi().equals(idTarget)) {
-                if (n instanceof PemeriksaanRutin p) {
-                    view.tampilkanPesan("Nama         : " + n.getNama());
-                    view.tampilkanPesan("Pemeriksaan  : " + p.getJenisPemeriksaan());
-                } else {
-                    view.tampilkanPesan(">> Narapidana kategori " + n.getKategori() + " tidak memiliki pemeriksaan rutin khusus.");
-                }
-                return;
-            }
-        }
-    }
 }

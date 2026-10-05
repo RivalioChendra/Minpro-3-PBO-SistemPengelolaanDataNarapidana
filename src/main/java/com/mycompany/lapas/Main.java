@@ -4,7 +4,7 @@ import controller.AdminLapas;
 import model.NarapidanaNarkotika;
 import model.NarapidanaTerorisme;
 import model.NarapidanaKorupsi;
-import model.NarapidanaPembunuhan;
+import model.NarapidanaPembunuhan;           
 import model.NarapidanaPencurian;
 import view.NarapidanaView;
 import java.util.Scanner;

@@ -93,6 +93,10 @@ public class NarapidanaView {
         System.out.println("-----------------------------------------------------------");
     }
 
+    public void tampilkanInfoNarapidana(Narapidana n) {
+        System.out.println(n.getInfo());
+    }
+
     public void tampilkanPesan(String pesan) {
         System.out.println(pesan);
     }
