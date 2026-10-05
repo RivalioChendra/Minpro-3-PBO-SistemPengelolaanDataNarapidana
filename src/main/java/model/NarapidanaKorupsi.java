@@ -9,10 +9,13 @@ public class NarapidanaKorupsi extends Narapidana {
     }
 
     @Override
-    public String getInfo() {
-        return super.getInfo() + "\n"
-                + "Uang Pengganti: Rp" + uangPengganti + "\n"
-                + "Kategori      : KORUPSI";
+    protected String getDetailKhusus() {
+        return "Uang Pengganti: Rp" + uangPengganti;
+    }
+
+    @Override
+    public String getKategori() {
+        return "KORUPSI";
     }
 
     public long getUangPengganti() {
@@ -20,6 +23,10 @@ public class NarapidanaKorupsi extends Narapidana {
     }
 
     public void setUangPengganti(long uangPengganti) {
+        if (uangPengganti <= 0) {
+            System.out.println(">> Uang pengganti harus lebih besar dari 0.");
+            return;
+        }
         this.uangPengganti = uangPengganti;
     }
 }

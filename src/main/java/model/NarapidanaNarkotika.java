@@ -1,18 +1,21 @@
 package model;
 
-public class NarapidanaNarkotika extends Narapidana {
+public class NarapidanaNarkotika extends Narapidana implements PemeriksaanRutin {
     private String jenisRehabilitasi;
 
-    public NarapidanaNarkotika(String idNapi, String nama, String kasus, int masaTahanan,String nomorSel, String blokSel, String jenisRehabilitasi) {
+    public NarapidanaNarkotika(String idNapi, String nama, String kasus, int masaTahanan, String nomorSel, String blokSel, String jenisRehabilitasi) {
         super(idNapi, nama, kasus, masaTahanan, nomorSel, blokSel);
         this.jenisRehabilitasi = jenisRehabilitasi;
     }
 
     @Override
-    public String getInfo() {
-        return super.getInfo() + "\n"
-                + "Rehabilitasi  : " + jenisRehabilitasi + "\n"
-                + "Kategori      : NARKOTIKA";
+    protected String getDetailKhusus() {
+        return "Rehabilitasi  : " + jenisRehabilitasi;
+    }
+
+    @Override
+    public String getKategori() {
+        return "NARKOTIKA";
     }
 
     public String getJenisRehabilitasi() {
@@ -20,6 +23,15 @@ public class NarapidanaNarkotika extends Narapidana {
     }
 
     public void setJenisRehabilitasi(String jenisRehabilitasi) {
+        if (jenisRehabilitasi == null || jenisRehabilitasi.isEmpty()) {
+            System.out.println(">> Jenis rehabilitasi tidak boleh kosong.");
+            return;
+        }
         this.jenisRehabilitasi = jenisRehabilitasi;
+    }
+
+    @Override
+    public String getJenisPemeriksaan() {
+        return "Tes urine setiap 2 minggu";
     }
 }

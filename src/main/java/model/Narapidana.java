@@ -1,10 +1,11 @@
 package model;
 
-public class Narapidana {
-    private String idNapi;
-    private String nama;
-    private String kasus;
-    private int masaTahanan;
+public abstract class Narapidana {
+    private final String idNapi;
+    private final String nama;
+    private final String kasus;
+    private final int masaTahanan;
+
     private String nomorSel;
     private String blokSel;
 
@@ -40,6 +41,11 @@ public class Narapidana {
     }
 
     public void setNomorSel(String nomorSel) {
+        //nomor sel tidak boleh kosong
+        if (nomorSel == null || nomorSel.isEmpty()) {
+            System.out.println(">> Nomor sel tidak boleh kosong.");
+            return;
+        }
         this.nomorSel = nomorSel;
     }
 
@@ -48,14 +54,25 @@ public class Narapidana {
     }
 
     public void setBlokSel(String blokSel) {
+        //blok sel tidak boleh kosong
+        if (blokSel == null || blokSel.isEmpty()) {
+            System.out.println(">> Blok sel tidak boleh kosong.");
+            return;
+        }
         this.blokSel = blokSel;
     }
+
+    protected abstract String getDetailKhusus();
+
+    public abstract String getKategori();
 
     public String getInfo() {
         return "ID Narapidana : " + idNapi + "\n"
                 + "Nama          : " + nama + "\n"
                 + "Kasus         : " + kasus + "\n"
                 + "Masa Tahanan  : " + masaTahanan + " bulan\n"
-                + "Sel           : " + nomorSel + " (" + blokSel + ")";
+                + "Sel           : " + nomorSel + " (" + blokSel + ")\n"
+                + getDetailKhusus() + "\n"
+                + "Kategori      : " + getKategori();
     }
 }

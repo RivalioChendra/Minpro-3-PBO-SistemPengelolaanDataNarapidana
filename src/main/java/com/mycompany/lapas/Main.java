@@ -40,7 +40,7 @@ public class Main {
 
         while (berjalan) {
             view.tampilkanMenu();
-            int pilihan = view.bacaAngka("Pilih menu (1-5)");
+            int pilihan = view.bacaAngka("Pilih menu (1-6)");
             view.tampilkanPesan("");
 
             switch (pilihan) {
@@ -49,12 +49,19 @@ public class Main {
                 case 3 -> admin.updateNomorSel();
                 case 4 -> admin.hapusNarapidana();
                 case 5 -> {
+                    String kategori = view.bacaTeks(
+                            "Kategori (Narkotika/Terorisme/Korupsi/Pembunuhan/Pencurian)");
+                    admin.tampilkanNarapidana(kategori);
+                }
+                case 6 -> {
                     view.tampilkanPesan("\nKeluar dari program...");
                     berjalan = false;
                 }
+
                 default -> view.tampilkanPesan(">> Pilihan tidak valid.");
             }
         }
+
         scanner.close();
     }
 }

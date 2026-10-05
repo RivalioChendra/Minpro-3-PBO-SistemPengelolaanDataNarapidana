@@ -1,6 +1,6 @@
 package model;
 
-public class NarapidanaPembunuhan extends Narapidana {
+public class NarapidanaPembunuhan extends Narapidana implements PemeriksaanRutin {
     private String kategoriPembunuhan;
 
     public NarapidanaPembunuhan(String idNapi, String nama, String kasus, int masaTahanan, String nomorSel, String blokSel, String kategoriPembunuhan) {
@@ -9,10 +9,13 @@ public class NarapidanaPembunuhan extends Narapidana {
     }
 
     @Override
-    public String getInfo() {
-        return super.getInfo() + "\n"
-                + "Kategori Kasus: " + kategoriPembunuhan + "\n"
-                + "Kategori      : PEMBUNUHAN";
+    protected String getDetailKhusus() {
+        return "Kategori Kasus: " + kategoriPembunuhan;
+    }
+
+    @Override
+    public String getKategori() {
+        return "PEMBUNUHAN";
     }
 
     public String getKategoriPembunuhan() {
@@ -20,6 +23,15 @@ public class NarapidanaPembunuhan extends Narapidana {
     }
 
     public void setKategoriPembunuhan(String kategoriPembunuhan) {
+        if (kategoriPembunuhan == null || kategoriPembunuhan.isEmpty()) {
+            System.out.println(">> Kategori pembunuhan tidak boleh kosong.");
+            return;
+        }
         this.kategoriPembunuhan = kategoriPembunuhan;
+    }
+
+    @Override
+    public String getJenisPemeriksaan() {
+        return "Evaluasi psikologis setiap 3 bulan";
     }
 }

@@ -1,6 +1,7 @@
 model\NarapidanaPencurian.class
 model\NarapidanaPembunuhan.class
 model\NarapidanaTerorisme.class
+model\PemeriksaanRutin.class
 controller\AdminLapas.class
 model\NarapidanaNarkotika.class
 view\NarapidanaView.class

@@ -9,10 +9,13 @@ public class NarapidanaPencurian extends Narapidana {
     }
 
     @Override
-    public String getInfo() {
-        return super.getInfo() + "\n"
-                + "Nilai Kerugian: Rp" + nilaiKerugian + "\n"
-                + "Kategori      : PENCURIAN";
+    protected String getDetailKhusus() {
+        return "Nilai Kerugian: Rp" + nilaiKerugian;
+    }
+
+    @Override
+    public String getKategori() {
+        return "PENCURIAN";
     }
 
     public long getNilaiKerugian() {
@@ -20,6 +23,10 @@ public class NarapidanaPencurian extends Narapidana {
     }
 
     public void setNilaiKerugian(long nilaiKerugian) {
+        if (nilaiKerugian <= 0) {
+            System.out.println(">> Nilai kerugian harus lebih besar dari 0.");
+            return;
+        }
         this.nilaiKerugian = nilaiKerugian;
     }
 }

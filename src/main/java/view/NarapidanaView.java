@@ -18,7 +18,8 @@ public class NarapidanaView {
         System.out.println("2. Tambah Narapidana");
         System.out.println("3. Update Nomor Sel");
         System.out.println("4. Hapus Narapidana");
-        System.out.println("5. Keluar");
+        System.out.println("5. Tampilkan Berdasarkan Kategori");
+        System.out.println("6. Keluar");
     }
 
     public void tampilkanSubMenuKategori() {
@@ -34,7 +35,7 @@ public class NarapidanaView {
         System.out.print(label + ": ");
         while (!scanner.hasNextInt()) {
             System.out.println(">> Input harus berupa angka, coba lagi.");
-            scanner.nextLine(); // buang input yang salah
+            scanner.nextLine(); 
             System.out.print(label + ": ");
         }
         int nilai = scanner.nextInt();
@@ -75,7 +76,7 @@ public class NarapidanaView {
         return nilai;
     }
 
-    // Input tidk boleh kosong
+    // Input tidak boleh kosong
     public String bacaTeks(String label) {
         System.out.print(label + ": ");
         String nilai = scanner.nextLine();
@@ -89,7 +90,7 @@ public class NarapidanaView {
 
     public void tampilkanNarapidana(Narapidana n) {
         System.out.println(n.getInfo());
-        System.out.println("------------------------------------------");
+        System.out.println("-----------------------------------------------------------");
     }
 
     public void tampilkanPesan(String pesan) {
