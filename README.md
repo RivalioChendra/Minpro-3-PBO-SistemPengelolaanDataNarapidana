@@ -35,7 +35,7 @@ Program memiliki beberapa kategori narapidana. Setiap kategori memiliki informas
 | Pembunuhan | Kategori pembunuhan | ✅ Ya |
 | Pencurian | Nilai kerugian | ❌ Tidak |
 
-> Kolom "Pemeriksaan Rutin" ini dijelaskan lebih lanjut di bagian **Penerapan Interface**.
+Kolom "Pemeriksaan Rutin" ini dijelaskan lebih lanjut di bagian Penerapan Interface.
 
 ### Fitur Program
 
@@ -164,8 +164,8 @@ Dengan cara ini, `AdminLapas` (Controller) tidak pernah menulis `n.idNapi = "...
 
 **Terdapat dua  jenis Encapsulation yang diterapkan yaitu:**
 
-1. **Keyword `final`** digunakan pada atribut `idNapi`, `nama`, `kasus`, dan `masaTahanan`. Keempat atribut ini memang tidak memiliki setter, artinya nilainya tidak boleh berubah setelah narapidana didaftarkan. Dengan `final`, Java akan menolak meng-compile program jika suatu saat ada yang mencoba menambahkan setter untuk atribut ini. Atribut `nomorSel` dan `blokSel` sengaja tidak dibuat `final`, karena memang harus bisa diubah lewat fitur Update Nomor Sel.
-2. **Validasi di dalam setter.** Validasi input (tidak boleh kosong, harus angka positif, dll) diterapkan di dua tempat: di `NarapidanaView` saat membaca input dari keyboard, dan di dalam setter masing-masing (`setNomorSel`, `setUangPengganti`, dan seterusnya) sebelum nilainya benar-benar diubah. Jadi meskipun ada bagian program lain yang memanggil setter secara langsung tanpa melalui `NarapidanaView`, data yang tidak valid tetap akan ditolak oleh objeknya sendiri.
+1. **Keyword `final`** digunakan pada atribut `idNapi`, `nama`, `kasus`, dan `masaTahanan`. Keempat atribut ini memang tidak memiliki setter, artinya nilainya tidak boleh berubah setelah narapidana didaftarkan. Dengan `final`, Java akan menolak mengcompile program jika suatu saat ada yang mencoba menambahkan setter untuk atribut ini. Atribut `nomorSel` dan `blokSel` sengaja tidak dibuat `final`, karena memang harus bisa diubah lewat fitur Update Nomor Sel.
+2. **Validasi di dalam setter** Validasi input (tidak boleh kosong, harus angka positif, dll) diterapkan di dua tempat: di `NarapidanaView` saat membaca input dari keyboard, dan di dalam setter masing-masing (`setNomorSel`, `setUangPengganti`, dan seterusnya) sebelum nilainya benar-benar diubah. Jadi meskipun ada bagian program lain yang memanggil setter secara langsung tanpa melalui `NarapidanaView`, data yang tidak valid tetap akan ditolak oleh objeknya sendiri.
 
 ### Inheritance
 
@@ -255,12 +255,10 @@ public abstract class Narapidana {
 
 **Kenapa dibuat `abstract`, bukan class biasa?**
 
-Karena secara logika, tidak masuk akal ada objek "Narapidana" polos tanpa kategori kejahatan yang jelas. Setiap narapidana di dunia nyata pasti termasuk salah satu dari lima kategori yang ada. Dengan menjadikan `Narapidana` abstract:
+Karena secara logika, tidak masuk akal ada objek "Narapidana" polos tanpa kategori kejahatan yang jelas. Setiap narapidana di dunia nyata setidaknya termasuk salah satu dari lima kategori yang ada. Dengan menjadikan `Narapidana` abstract:
 
 - Program tidak akan bisa membuat objek `new Narapidana(...)` secara langsung, Java akan menolaknya saat di-compile.
 - Objek hanya bisa dibuat lewat salah satu dari lima subclass-nya (`new NarapidanaKorupsi(...)`, dan seterusnya), yang masing-masing wajib mengisi `getDetailKhusus()` dan `getKategori()` miliknya sendiri.
-
-Sebagai perbandingan, method `getInfo()` bukan abstract, isinya sudah ditulis lengkap di `Narapidana` dan sama untuk semua subclass, karena bagian format dasarnya (ID, Nama, Kasus, Masa Tahanan, Sel) memang selalu sama. Yang berbeda hanyalah dua baris terakhir, dan itu diserahkan ke `getDetailKhusus()` serta `getKategori()`.
 
 ---
 
@@ -322,7 +320,7 @@ public void tampilkanNarapidana(String kategori) {
 }
 ```
 
-Java membedakan kedua method ini berdasarkan jumlah dan tipe parameternya, bukan dari isi method-nya. Saat dipanggil `admin.tampilkanNarapidana()` tanpa argumen, Java menjalankan versi pertama. Saat dipanggil `admin.tampilkanNarapidana("Narkotika")` dengan satu argumen `String`, Java otomatis menjalankan versi kedua. Inilah yang mendasari fitur menu Tampilkan Berdasarkan Kategori.
+Java membedakan kedua method ini berdasarkan jumlah dan tipe parameternya, bukan dari isi method-nya. Saat dipanggil `admin.tampilkanNarapidana()` tanpa argumen, Java menjalankan versi pertama. Saat dipanggil `admin.tampilkanNarapidana("Narkotika")` dengan satu argumen `String`, Java otomatis menjalankan versi kedua.
 
 ---
 
@@ -376,7 +374,7 @@ for (Narapidana n : daftarNarapidana) {
 }
 ```
 
-Narapidana kategori Korupsi dan Pencurian akan melewati blok `if` ini begitu saja (karena bukan `instanceof PemeriksaanRutin`), sedangkan Narkotika, Terorisme, dan Pembunuhan akan menampilkan baris "Pemeriksaan" tambahan sesuai kategorinya. Interface ini memberikan cara yang rapi untuk menambahkan kemampuan khusus hanya pada subclass tertentu, tanpa harus memaksakan method itu ada di semua subclass lewat superclass.
+Narapidana kategori Korupsi dan Pencurian akan melewati blok `if` ini begitu saja (karena bukan `instanceof PemeriksaanRutin`), sedangkan Narkotika, Terorisme, dan Pembunuhan akan menampilkan baris "Pemeriksaan" tambahan sesuai kategorinya. 
 
 ---
 
