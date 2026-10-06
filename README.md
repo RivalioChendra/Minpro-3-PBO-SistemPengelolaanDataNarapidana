@@ -426,41 +426,41 @@ Pengguna mengetik nama kategori yang ingin dilihat (misalnya "Narkotika"), lalu 
 
 **7. Keluar**
  
-![Keluar](Asset/keluar.png)
+![Keluar](Asset/Keluar.png)
  
 Pesan penutup yang muncul saat memilih menu Keluar.
   <br> <br>
 
 **8. Validasi Input Kosong**
  
-![Validasi Kosong](Asset/validkosong.png)
+![Validasi Kosong](Asset/Validkosong.png)
  
 Pesan error saat kolom seperti ID/Nama/Kasus dibiarkan kosong.
   <br> <br>
 
 **9. Validasi ID Duplikat**
  
-![Validasi Duplikat](Asset/validtambah2.png)
+![Validasi Duplikat](Asset/Validtambah2.png)
  
 Pesan error saat ID yang dimasukkan sudah digunakan narapidana lain.
   <br> <br>
 
 **10. Validasi Kategori Tidak Valid**
  
-![Validasi Kategori](Asset/validtambah1.png)
+![Validasi Kategori](Asset/Validtambah1.png)
  
 Pesan error saat kategori kejahatan dipilih di luar angka 1–5.
  <br> <br>
 
 **11. Validasi Input Bukan Angka**
  
-![Validasi Bukan Angka](Asset/validmenu.png)
+![Validasi Bukan Angka](Asset/Validmenu.png)
  
 Pesan error saat kolom yang seharusnya diisi angka justru diisi huruf/teks.
   <br> <br>
 
 **12. Validasi Angka Harus Positif**
  
-![Validasi Positif](Asset/valid0.png)
+![Validasi Positif](Asset/Valid0.png)
  
 Pesan error saat angka yang dimasukkan bernilai 0 atau negatif.
